@@ -4,22 +4,22 @@ import Foundation
 
 final class Hero: Model {
     var id: Node?
-    var content: String
+    var name: String
     
-    init(content: String) {
+    init(name: String) {
         self.id = UUID().uuidString.makeNode()
-        self.content = content
+        self.name = name
     }
 
     init(node: Node, in context: Context) throws {
         id = try node.extract("id")
-        content = try node.extract("content")
+        name = try node.extract("name")
     }
 
     func makeNode(context: Context) throws -> Node {
         return try Node(node: [
             "id": id,
-            "content": content
+            "name": name
         ])
     }
 }
@@ -30,7 +30,7 @@ extension Hero {
         automatically for example. Remove on real models.
     */
     public convenience init?(from string: String) throws {
-        self.init(content: string)
+        self.init(name: string)
     }
 }
 

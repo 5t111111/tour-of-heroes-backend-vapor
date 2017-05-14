@@ -29,7 +29,7 @@ final class HeroController: ResourceRepresentable {
     func update(request: Request, hero: Hero) throws -> ResponseRepresentable {
         let new = try request.post()
         var hero = hero
-        hero.content = new.content
+        hero.name = new.name
         try hero.save()
         return hero
     }
