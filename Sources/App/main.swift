@@ -1,9 +1,10 @@
 import Vapor
 import VaporMySQL
 
-let drop = Droplet()
-
-try drop.addProvider(VaporMySQL.Provider.self)
+let drop = Droplet(
+    preparations: [Hero.self],
+    providers: [VaporMySQL.Provider.self]
+)
 
 drop.get { req in
     return try drop.view.make("welcome", [
@@ -11,6 +12,6 @@ drop.get { req in
     ])
 }
 
-drop.resource("posts", HeroController())
+drop.resource("heroes", HeroController())
 
 drop.run()

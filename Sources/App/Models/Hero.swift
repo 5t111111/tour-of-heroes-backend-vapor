@@ -36,10 +36,13 @@ extension Hero {
 
 extension Hero: Preparation {
     static func prepare(_ database: Database) throws {
-        //
+        try database.create("heroes") { users in
+            users.id()
+            users.string("name")
+        }
     }
 
     static func revert(_ database: Database) throws {
-        //
+        try database.delete("heroes")
     }
 }
