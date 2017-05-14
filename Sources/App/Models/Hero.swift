@@ -2,7 +2,7 @@ import Vapor
 import Fluent
 import Foundation
 
-final class Post: Model {
+final class Hero: Model {
     var id: Node?
     var content: String
     
@@ -24,7 +24,7 @@ final class Post: Model {
     }
 }
 
-extension Post {
+extension Hero {
     /**
         This will automatically fetch from database, using example here to load
         automatically for example. Remove on real models.
@@ -34,7 +34,7 @@ extension Post {
     }
 }
 
-extension Post: Preparation {
+extension Hero: Preparation {
     static func prepare(_ database: Database) throws {
         //
     }

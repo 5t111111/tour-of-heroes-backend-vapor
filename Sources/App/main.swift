@@ -11,6 +11,6 @@ drop.get { req in
     ])
 }
 
-drop.resource("posts", PostController())
+drop.resource("posts", HeroController())
 
 drop.run()
