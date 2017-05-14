@@ -3,6 +3,8 @@ import Fluent
 import Foundation
 
 final class Hero: Model {
+    static let entity = "heroes"
+
     var id: Node?
     var name: String
     
