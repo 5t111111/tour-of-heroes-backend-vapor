@@ -26,16 +26,6 @@ final class Hero: Model {
     }
 }
 
-extension Hero {
-    /**
-        This will automatically fetch from database, using example here to load
-        automatically for example. Remove on real models.
-    */
-    public convenience init?(from string: String) throws {
-        self.init(name: string)
-    }
-}
-
 extension Hero: Preparation {
     static func prepare(_ database: Database) throws {
         try database.create("heroes") { users in
